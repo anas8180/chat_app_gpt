@@ -63,7 +63,7 @@ class _ChatPageState extends State<ChatPage> {
       ),
       backgroundColor: backgroundColor,
       body: Column(children: [
-        Expanded(child: _buildLists()),
+        Expanded(child: _buildChatLists()),
         Visibility(
             visible: isLoading,
             child: const Padding(
@@ -150,5 +150,31 @@ class _ChatPageState extends State<ChatPage> {
             text: message.text,
           );
         }));
+  }
+
+  ListView _buildChatLists() {
+    return ListView.builder(
+      itemCount: _messages.length,
+      shrinkWrap: true,
+      padding: const EdgeInsets.only(top: 10,bottom: 10),
+      //physics: const NeverScrollableScrollPhysics(),
+      controller: _scrollController,
+      itemBuilder: ((context, index) {
+        var message = _messages[index];
+        return Container(
+          padding: const EdgeInsets.only(left: 14,right: 14,top: 10,bottom: 10),
+          child: Align(
+            alignment: (message.chatMessageType == ChatMessageType.bot ? Alignment.topLeft : Alignment.topRight),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: (message.chatMessageType == ChatMessageType.bot ? Colors.grey.shade200 : Colors.blue[200]),
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Text(message.text, style: const TextStyle(fontSize: 15),),
+            ),
+          ),
+        );
+      }));
   }
 }
