@@ -1,3 +1,4 @@
+import 'package:chat_app_gpt/screens/bottom_nav_screen.dart';
 import 'package:chat_app_gpt/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ChatPage(),
+      home: BottomNavPage(),
       debugShowCheckedModeBanner: false,
     );
   }

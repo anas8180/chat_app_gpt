@@ -38,6 +38,7 @@ class ChatMessageWidget extends StatelessWidget {
               ),
         Expanded(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
