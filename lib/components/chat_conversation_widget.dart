@@ -1,3 +1,4 @@
+import 'package:chat_app_gpt/screens/chat_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChatConversation extends StatefulWidget {
@@ -17,7 +18,9 @@ class _ChatConversationState extends State<ChatConversation> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => ChatDetailPage()));
+      },
       child: Container(
         padding: EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 10),
         child: Row(
